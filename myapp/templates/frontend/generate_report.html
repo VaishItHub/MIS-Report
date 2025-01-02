@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate MIS Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .url-section {
+            margin-top: 20px;
+        }
+        .url-link {
+            color: blue;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Generate MIS Report</h1>
+    <p>Click the button below to generate your MIS report with pie charts:</p>
+    
+    <!-- Button to generate the report -->
+    <button onclick="generateReport()">Generate Report</button>
+    
+    <div class="container">
+        <div class="url-section" id="url-section" style="display: none;">
+            <p>Your MIS Report is ready. Click the link below to access it:</p>
+            <a id="report-url" class="url-link" href="#" target="_blank">Access the Report</a>
+        </div>
+    </div>
+
+    <script>
+        function generateReport() {
+            // Disable the button while the report is being generated
+            document.querySelector("button").disabled = true;
+            document.querySelector("button").innerText = "Generating...";
+
+            // Make an AJAX request to the server to generate the report
+            fetch('/generate-report/')
+                .then(response => response.json())
+                .then(data => {
+                    // Show the URL once the report is generated
+                    document.getElementById('url-section').style.display = 'block';
+                    document.getElementById('report-url').href = data.url;
+                    document.getElementById('report-url').innerText = "Click here to access your MIS report";
+
+                    // Re-enable the button after completion
+                    document.querySelector("button").disabled = false;
+                    document.querySelector("button").innerText = "Generate Report";
+                })
+                .catch(error => {
+                    alert('Error generating report: ' + error);
+                    document.querySelector("button").disabled = false;
+                    document.querySelector("button").innerText = "Generate Report";
+                });
+        }
+    </script>
+</body>
+</html>

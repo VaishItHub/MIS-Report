@@ -1,0 +1,39 @@
+{% comment %} <!-- frontend/templates/frontend/report_form.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate MIS Report</title>
+</head>
+<body>
+    <h1>Generate MIS Report from Google Sheet</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Generate Report</button>
+    </form>
+</body>
+</html> {% endcomment %}
+
+
+
+<!-- templates/frontend/report_form.html -->
+
+<!-- templates/frontend/report_form.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Report</title>
+</head>
+<body>
+    <h1>Generate MIS Report</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Generate Report</button>
+    </form>
+</body>
+</html>

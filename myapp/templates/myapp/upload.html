@@ -1,0 +1,37 @@
+{% comment %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Google Sheet</title>
+</head>
+<body>
+    <h1>Provide Google Sheet URL</h1>
+    <form action="/process/" method="post">
+        {% csrf_token %}
+        <label for="sheet_url">Google Sheet URL:</label>
+        <input type="text" id="sheet_url" name="sheet_url" required><br><br>
+        <button type="submit">Generate Excel</button>
+    </form>
+</body>
+</html> {% endcomment %}
+
+
+<!-- frontend/templates/frontend/upload_form.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Sheet and MIS Report Integration</title>
+</head>
+<body>
+    <h1>Upload Google Sheet and MIS Report</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

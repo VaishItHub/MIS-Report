@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generated MIS Report</title>
+</head>
+<body>
+    <h1>Generated MIS Report</h1>
+
+    <h2>Main Sheet Data:</h2>
+    <div>{{ main_data|safe }}</div>
+
+    <h2>Generated MIS Report:</h2>
+    <div>{{ mis_report|safe }}</div>
+
+    <h2>Main Sheet Pie Chart:</h2>
+    <img src="data:image/png;base64,{{ main_pie_chart|safe }}" alt="Main Sheet Pie Chart"/>
+
+    <h2>MIS Report Pie Chart:</h2>
+    <img src="data:image/png;base64,{{ mis_pie_chart|safe }}" alt="MIS Report Pie Chart"/>
+</body>
+</html>
