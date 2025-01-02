@@ -1,4 +1,5 @@
 {
+    
     "builds": [{
     "src": "myproject/wsgi.py",
     "use": "@vercel/python",
@@ -12,3 +13,10 @@
     }
     ]
    }
+{
+  "functions": {
+    "app/api/**/*": {
+      "maxDuration": 5 // All functions can run for a maximum of 5 seconds
+    }
+  }
+}
